@@ -1,6 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
+
+//색 별 음향 나오는 지 테스트 해보기
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
