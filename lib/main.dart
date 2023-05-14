@@ -1,3 +1,4 @@
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
@@ -13,76 +14,37 @@ class XylophoneApp extends StatelessWidget {
     final player = AudioCache();
     player.play('note$number.wav');
   }
+
+  Expanded buildKey({Color color, int soundNumber}) {
+    return Expanded(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: color,
+          onPrimary: color,
+        ),
+        onPressed: () {
+          playSound(soundNumber);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
-            children: [
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.red
-                ),
-                  onPressed: () {
-                    playSound(1);
-                  },
-                      child: Text('clickMe'),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.orange
-                ),
-                onPressed: () {
-                  playSound(2);
-                },
-                child: Text('clickMe'),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.yellow
-                ),
-                onPressed: () {
-                  playSound(3);
-                },
-                child: Text('clickMe'),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.green
-                ),
-                onPressed: () {
-                  playSound(4);
-                },
-                child: Text('clickMe'),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.teal
-                ),
-                onPressed: () {
-                  playSound(5);
-                },
-                child: Text('clickMe'),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.blue
-                ),
-                onPressed: () {
-                  playSound(6);
-                },
-                child: Text('clickMe'),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.purple
-                ),
-                onPressed: () {
-                  playSound(7);
-                },
-                child: Text('clickMe'),
-              ),
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              buildKey(color: Colors.red, soundNumber: 1),
+              buildKey(color: Colors.orange, soundNumber: 2),
+              buildKey(color: Colors.yellow, soundNumber: 3),
+              buildKey(color: Colors.green, soundNumber: 4),
+              buildKey(color: Colors.teal, soundNumber: 5),
+              buildKey(color: Colors.blue, soundNumber: 6),
+              buildKey(color: Colors.purple, soundNumber: 7),
             ],
           ),
         ),
