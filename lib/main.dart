@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 
 //색 별 음향 나오는 지 테스트 해보기
+//pull 받은 거 push 하기( 걍 하는거임 )
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
