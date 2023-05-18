@@ -25,6 +25,17 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+
+  List<String> question = [
+    'You can lead a cow down stairs but not up stairs.',
+    'Approximately one quarter of human bones are in the feet.',
+    'A slug\'s blood is green.',
+  ];
+
+  List<Icon> scoreKeeper = [];
+
+  int questionNumber = 0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -61,6 +72,8 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                questionNumber++;
+                print(questionNumber);
                 //The user picked true.
               },
             ),
@@ -84,6 +97,9 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
         ),
+        Row(
+          children: scoreKeeper,
+        )
         //TODO: Add a Row here as your score keeper
       ],
     );
@@ -91,7 +107,5 @@ class _QuizPageState extends State<QuizPage> {
 }
 
 /*
-question1: 'You can lead a cow down stairs but not up stairs.', false,
-question2: 'Approximately one quarter of human bones are in the feet.', true,
-question3: 'A slug\'s blood is green.', true,
+
 */
